@@ -45,8 +45,10 @@
 						$terms = wp_get_post_terms($post->ID, 'oi_blog_categories', array('fields' => 'all'));
 						/* translators: this is regarding blog category links */
 						$term_pre_attr = esc_attr__('Find more posts related to', 'orangetime');
-						$excerpt_length = 55; // Can be replaced with another function or global variable in the future
+						$excerpt_length = 250; // Can be replaced with another function or global variable in the future
+						$excerpt = mb_substr( get_the_excerpt(), 0, $excerpt_length );
 						$read_more = __('<span class="blog_post-read-more"></span>', 'orangetime');
+						/* translators: %s is the name of the blog post */
 						$read_more_attr = sprintf(esc_attr__('Read more about %s', 'orangetime'), $title);
 
 						// Loop to get the Categories of the Post
@@ -54,7 +56,7 @@
 
 						foreach ($terms as $key => $value)
 						{
-							array_push($term_names, sprintf('<a href="%4$s" title="%3$s %1$s">%1$s</a>', $value->name, $value->slug, $term_pre_attr, get_category_link($value->term_id)));
+							array_push($term_names, sprintf('<a href="%4$s" title="%3$s %1$s">%1$s</a>', $value->name, $value->slug, $term_pre_attr, get_category_link( $value->term_id )));
 						}
 
 						array_push($output,
@@ -72,7 +74,7 @@
 												</p>
 											</div>
 											<div>
-												<p class="blog_post-meta">%(read_more)s %(date)s | %(categories)s</p>
+												<p class="blog_post-meta">%(read_more)s %(date)s <span class="separator">|</span> %(categories)s</p>
 											</div>
 										</div>
 									</article>
@@ -85,8 +87,9 @@
 									// 'author' => sprintf('<a href="%2$s" title="%3$s">%1$s</a>', $author, $author_link, $author_attr),
 									'date' => get_the_date('d. F Y'),
 									'categories' => implode(", ", $term_names),
-									'excerpt' => mb_substr(get_the_excerpt(), 0, $excerpt_length),
-									'read_more' => sprintf('<a href="%3$s" title="%2$s">%1$s</a>', $read_more, $read_more_attr, $post_link)
+									// Finding the position of the last "." (if it exists) and getting rid of anything after it
+									'excerpt' => mb_substr( $excerpt, 0, strrpos( $excerpt, ( strrchr( $excerpt, "." ) ? "." : "" ) ) ),
+									'read_more' => sprintf('<a class="blog_post-read-more-link" href="%3$s" title="%2$s">%1$s</a>', $read_more, $read_more_attr, $post_link)
 								)
 							)
 						);

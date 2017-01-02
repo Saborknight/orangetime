@@ -193,14 +193,14 @@ function oi_add_remove_scripts()
 	}
 
 	$css_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/css/styles_screen.min.css') : null;
-    $css_blog = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/css/styles_blog_screen.css') : null;
+    $css_blog_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/css/styles_blog_screen.css') : null;
     $js_vendors_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/scripts/vendors.min.js') : null;
     $js_custom_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/scripts/custom.js') : null;
 
 	wp_enqueue_style('oi-screen', get_template_directory_uri() . '/assets/dist/css/styles_screen.min.css', false, $css_time, 'screen');
 
     if( is_page_template( 'page-blog.php' ) || get_post_type() === 'oi_blog' ) {
-        wp_enqueue_style('oi-screen_blog', get_template_directory_uri() . '/assets/dist/css/styles_blog_screen.css', false, $css_blog, 'screen_blog');
+        wp_enqueue_style('oi-screen_blog', get_template_directory_uri() . '/assets/dist/css/styles_blog_screen.css', array( 'oi-screen' ), $css_blog, 'screen');
     }
 
     wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/dist/scripts/vendors.min.js', false, $js_vendors_time);
