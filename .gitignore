@@ -1,0 +1,29 @@
+####################################################################################################
+## Wordpress : https://github.com/github/gitignore/blob/master/WordPress.gitignore
+####################################################################################################
+*.log
+wp-config.php
+dev/wp-content/advanced-cache.php
+dev/wp-content/backup-db/
+dev/wp-content/backups/
+dev/wp-content/blogs.dir/
+dev/wp-content/cache/
+dev/wp-content/upgrade/
+dev/wp-content/uploads/
+dev/wp-content/wp-cache-config.php
+dev/wp-content/plugins/hello.php
+
+dev/.htaccess
+dev/license.txt
+dev/readme.html
+dev/sitemap.xml
+dev/sitemap.xml.gz
+
+
+# Begin Specific Ignores
+*.wordpress.*.xml
+server/*
+orangetime-build/*
+.ftp-config.json
+backup/*
+orangetime-dev/sftp-config.json

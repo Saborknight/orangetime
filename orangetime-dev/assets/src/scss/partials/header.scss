@@ -1,0 +1,212 @@
+// => Header section components
+// ------------------------------------------------------------------------------
+.main-header {
+    position: relative;
+
+    > .container {
+        position: relative;
+        height: 120px;
+    }
+
+    &:after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -12px;
+        height: 12px;
+        content: '\00ad';
+        border-top: 1px dashed #828282;
+        background: url('../gfx/shadow01.png') 50% 0 no-repeat;
+    }
+}
+
+.main-header__logo {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    margin-top: -45px;
+    margin-bottom: 0;
+}
+
+.lang-switch {
+    @extend .list-unstyled;
+    position: absolute;
+    margin-bottom: 0;
+
+    .main-header__mainnav > & {
+        right: 15px;
+        top: 50%;
+        margin-top: -12px;
+    }
+
+    > .lang-switch__item {
+        float: left;
+    }
+
+    > .lang-switch__item + .lang-switch__item {
+        &:before {
+            display: inline-block;
+            content: '/';
+            margin-left: 3px;
+            margin-right: 3px;
+            vertical-align: middle;
+        }
+    }
+
+    a {
+        color: $text-color;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    > .current-item > a {
+        text-decoration: underline;
+    }
+}
+
+// Mainnav
+//
+.mainnav {
+    @extend .list-inline;
+    position: absolute;
+    left: 130px;
+    top: 50%;
+    margin-top: -12px;
+    margin-left: -10px;
+    margin-bottom: 0;
+
+    a {
+        color: $text-color;
+        font-size: 14px;
+        text-transform: uppercase;
+        transition: color .15s;
+
+        &:hover {
+            color: $brand-primary;
+            text-decoration: none;
+        }
+    }
+
+    > .menu-item {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .current-menu-item,
+    .current-page-ancestor,
+    .current-post-ancestor {
+        > a {
+            color: $brand-primary;
+        }
+    }
+}
+
+// Mobile navigation
+//
+.mainnav-mobile {
+    @extend .list-unstyled;
+    margin-top: 80px;
+    text-align: center;
+
+    a {
+        display: block;
+        padding: 8px 15px;
+        color: mix(#fff, $brand-primary, 45%);
+        font-size: 20px;
+    }
+
+    .current-menu-item,
+    .current-page-ancestor,
+    .current-post-ancestor {
+        > a {
+            color: #fff;
+        }
+    }
+}
+
+.mobile-mainnav__section {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -20px;
+    z-index: $zindex-dropdown;
+
+    .lang-switch {
+        a {
+            color: mix(#fff, $brand-primary, 55%);
+            font-size: 18px;
+        }
+
+        > .lang-switch__item + .lang-switch__item {
+            &:before {
+                color: mix(#fff, $brand-primary, 55%);
+            }
+        }
+
+        > .current-item > a {
+            color: #fff;
+        }
+    }
+
+    > .x {
+        z-index: $zindex-dropdown + 2;
+    }
+
+    .dropdown-menu {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 0;
+        width: 100%;
+        opacity: 0;
+        transform-origin: center bottom;
+        transition: opacity .25s ease .1s, height 0s linear .75s;
+        overflow: hidden;
+        z-index: $zindex-dropdown + 1;
+        background-color: $brand-primary;
+    }
+
+    .dropdown-menu__content {
+        position: relative;
+        height: 100%;
+        padding: $gutter;
+    }
+
+    &.open {
+        .dropdown-menu {
+            animation-name: bounceInDown;
+            animation-duration: .75s;
+            opacity: 1;
+            height: 100%;
+            transition: opacity 0s ease 0s, height 0s linear 0s;
+        }
+    }
+}
+
+@keyframes bounceInDown {
+    0%, 60%, 75%, 90%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -3000px, 0);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(0, 25px, 0);
+    }
+
+    75% {
+        transform: translate3d(0, -10px, 0);
+    }
+
+    90% {
+        transform: translate3d(0, 5px, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}

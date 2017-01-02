@@ -1,0 +1,103 @@
+//
+// Alerts
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+
+.alert {
+    padding: $alert-padding;
+    margin-bottom: $line-height-computed;
+    border: 1px solid transparent;
+    border-radius: $alert-border-radius;
+    @include oi-font-size(15);
+
+    // Headings for larger alerts
+    h4,
+    h2 {
+        margin-top: 0;
+        // Specified for the h4 to prevent conflicts of changing $headings-color
+        color: inherit;
+        @include oi-font-size(18);
+        font-weight: 600;
+    }
+
+    // Provide class for links that match alerts
+    .alert-link {
+        font-weight: $alert-link-font-weight;
+    }
+
+    // Improve alignment and spacing of inner content
+    > p,
+    > ul {
+        margin-bottom: 0;
+    }
+
+    > p + p {
+        margin-top: 5px;
+    }
+}
+
+// Dismissible alerts
+//
+// Expand the right padding and account for the close button's positioning.
+
+.alert-dismissable,
+.alert-dismissible {
+    padding-right: $alert-padding + 20;
+
+    // Adjust close link position
+    .close {
+        position: relative;
+        top: -2px;
+        right: -21px;
+        color: inherit;
+    }
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+.alert-success {
+    @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+
+.alert-info {
+    @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+}
+
+.alert-warning {
+    @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+
+.alert-danger {
+    @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+// Form-control validations
+//
+label.error {
+    position: relative;
+    top: -1px;
+    display: block;
+    padding: 3px 0;
+    color: $alert-warning-border;
+    font-weight: normal;
+    border-top: 2px solid $alert-warning-border;
+    transition: all .25s;
+    @include oi-font-size(12);
+
+    .btn-checkbox + &,
+    .btn-radio + & {
+        top: -6px;
+        border-top: 0;
+        padding-left: 12px;
+        border-left: 2px solid $alert-warning-border;
+    }
+
+    &.valid {
+        border-top-color: $alert-success-border;
+        color: $alert-success-text;
+    }
+}

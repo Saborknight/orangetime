@@ -1,0 +1,50 @@
+// => Externals. Bootstrap default values overrides
+// ------------------------------------------------------------------------------
+@import "partials/variables.scss";
+@import "bootstrap.scss";
+//@import "vendors/owl.carousel/owl.carousel.scss";
+
+// => Mixins
+// ------------------------------------------------------------------------------
+@import "partials/mixins/helpers.scss";
+
+// => Breakpoints
+// ------------------------------------------------------------------------------
+// Extra small devices (phones, less than 768px)
+//   No media query since this is the default in Bootstrap, but you can use:
+//   @media (max-width: $screen-xs-max) { ... }
+//
+// Small devices (tablets, 768px and up)
+//   @media (min-width: $screen-sm-min) { ... }
+//
+// Medium devices (desktops, 992px and up)
+//   @media (min-width: $screen-md-min) { ... }
+//
+// Large devices (large desktops, 1200px and up)
+//   @media (min-width: $screen-lg-min) { ... }
+//
+// Using @mixin
+//
+// .header {
+//     height: 25px;
+//
+//     @include mq(sm) { // valid: xs, sm, sm-portrait, md, lg
+//         height: 50px;
+//     }
+// }
+//
+
+
+// => Partials
+// ------------------------------------------------------------------------------
+@import "partials/globals.scss";
+@import "partials/icons-sprite.scss";
+@import "partials/gallery.scss";
+//@import "partials/forms.scss";
+//@import "partials/alerts.scss";
+//@import "partials/pagination.scss";
+@import "partials/swipebox.scss";
+//@import "partials/social-networks.scss";
+@import "partials/header.scss";
+@import "partials/main.scss";
+@import "partials/footer.scss";

@@ -1,0 +1,69 @@
+%common {
+    background-repeat: no-repeat;
+    background-image: url('../gfx/oi-icons_sprite.svg');
+
+    .no-svg & {
+        background-image: url('../gfx/oi-icons_sprite.png');
+    }
+}
+
+
+.ico--arrow-right {
+    background-position: -70px 0;
+    @extend %common;
+    width: 40px;
+    height: 40px;
+}
+
+.ico--arrow-right-dims {
+    width: 40px;
+    height: 40px;
+}
+
+.ico--email {
+    background-position: -70px -40px;
+    @extend %common;
+    width: 16px;
+    height: 16px;
+}
+
+.ico--email-dims {
+    width: 16px;
+    height: 16px;
+}
+
+.ico--fb {
+    background-position: -86px -40px;
+    @extend %common;
+    width: 16px;
+    height: 16px;
+}
+
+.ico--fb-dims {
+    width: 16px;
+    height: 16px;
+}
+
+.ico--phone {
+    background-position: 0 -70px;
+    @extend %common;
+    width: 16px;
+    height: 16px;
+}
+
+.ico--phone-dims {
+    width: 16px;
+    height: 16px;
+}
+
+.ico--play {
+    background-position: 0 0;
+    @extend %common;
+    width: 70px;
+    height: 70px;
+}
+
+.ico--play-dims {
+    width: 70px;
+    height: 70px;
+}

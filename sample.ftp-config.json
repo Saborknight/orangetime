@@ -1,0 +1,23 @@
+{
+	"_comment": "USE 'secure: false' OPTION ONLY IF YOU KNOW WHAT ARE YOU DOING",
+	"insecure": {
+		"secure": false,
+		"host": "HOST",
+		"user": "USER",
+		"password": "PASS",
+		"port": {
+			"ftps": 21,
+			"ftp": 21
+		}
+	},
+	"production": {
+		"secure": true,
+		"host": "HOST",
+		"user": "USER",
+		"password": "PASS",
+		"port": {
+			"ftps": 21,
+			"ftp": 21
+		}
+	}
+}

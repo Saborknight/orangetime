@@ -1,0 +1,73 @@
+// => Mixins and Functions
+// ------------------------------------------------------------------------------
+
+@function calculate-rem($size) {
+    $rem-size: $size / 16;
+    @return $rem-size * 1rem;
+}
+
+// Active state gradient
+@mixin oi-gradient-radial($inner-color: #00e3e1, $outer-color: #03c1c2) {
+    background-color: $outer-color;
+    background-image: radial-gradient(circle farthest-corner at 100% 50%, $inner-color, $outer-color);
+    background-repeat: no-repeat;
+}
+
+// rem font size unit with px fallback
+@mixin oi-font-size($photoshop-fontsize: 16) {
+    font-size: $photoshop-fontsize * 1px;
+    font-size: calculate-rem($photoshop-fontsize);
+}
+
+// SVG background images with PNG fallback
+@mixin fallback-background-image($name, $extension: "png") {
+    .no-svg & {
+        background-image: url("#{$name}.#{$extension}");
+    }
+}
+
+// Media Queries
+@mixin mq($breakpoint-slug: "sm") {
+
+    @if $breakpoint-slug == "xs" {
+        // Extra small devices (phones, less than 768px)
+        @media (max-width: $screen-xs-max) {
+            @content;
+        }
+
+    } @else if $breakpoint-slug == "sm" {
+        // Small devices (tablets, 768px and up)
+        @media (min-width: $screen-sm-min) {
+            @content;
+        }
+
+    } @else if $breakpoint-slug == "md" {
+        // Medium devices (desktops, 992px and up)
+        @media (min-width: $screen-md-min) {
+            @content;
+        }
+
+    } @else if $breakpoint-slug == "lg" {
+        // Large devices (large desktops, 1200px and up)
+        @media (min-width: $screen-lg-min) {
+            @content;
+        }
+    } @else if $breakpoint-slug == "sm-portrait" {
+        // Small devices (tablets, 768px and up) portrait
+        @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+            @content;
+        }
+    }
+}
+
+// Global Backdrop
+%oi-backdrop {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .40);
+    backface-visibility: hidden;
+}

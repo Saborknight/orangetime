@@ -1,0 +1,39 @@
+// => Footer section components
+// ------------------------------------------------------------------------------
+.main-footer {
+    padding: $gutter;
+    text-align: center;
+    background-color: $body-bg;
+    color: #555;
+    font-size: 14px;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    a {
+        color: #555;
+    }
+
+    .sep {
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+
+    .ico-fb {
+        white-space: nowrap;
+
+        &:before {
+            @extend .ico--fb;
+            position: relative;
+            display: inline-block;
+            content: '\00ad';
+            top: -1px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    }
+}
+
