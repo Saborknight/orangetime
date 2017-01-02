@@ -46,7 +46,7 @@
 						/* translators: this is regarding blog category links */
 						$term_pre_attr = esc_attr__('Find more posts related to', 'orangetime');
 						$excerpt_length = 55; // Can be replaced with another function or global variable in the future
-						$read_more = esc_attr__('Read More...', 'orangetime');
+						$read_more = __('<span class="blog_post-read-more"></span>', 'orangetime');
 						$read_more_attr = sprintf(esc_attr__('Read more about %s', 'orangetime'), $title);
 
 						// Loop to get the Categories of the Post
@@ -72,17 +72,14 @@
 												</p>
 											</div>
 											<div>
-												<div class="blog_post-read-more">
-													%(read_more)s
-												</div>
-												<p class="blog_post-meta">%(date)s | %(categories)s</p>
+												<p class="blog_post-meta">%(read_more)s %(date)s | %(categories)s</p>
 											</div>
 										</div>
 									</article>
 								</li>',
 
 								array(
-									'featured_image' => get_the_post_thumbnail(get_the_ID(), 'medium'),
+									'featured_image' => get_the_post_thumbnail(get_the_ID(), 'large'),
 									'title' => sprintf('<a href="%3$s" title="%2$s">%1$s</a>', $title, $title_attr, $post_link),
 									// Author not on designs. Keeping just in case though
 									// 'author' => sprintf('<a href="%2$s" title="%3$s">%1$s</a>', $author, $author_link, $author_attr),
