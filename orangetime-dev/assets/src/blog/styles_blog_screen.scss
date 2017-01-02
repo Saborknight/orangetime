@@ -80,3 +80,8 @@ li.row:nth-of-type(even) .blog_post-image_container {
 .separator {
 	margin: 0 0.5em;
 }
+
+.blog_post-content > div {
+	padding-left: 1em;
+	padding-right: 1em;
+}
