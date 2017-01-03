@@ -112,3 +112,32 @@
 	padding-left: 1em;
 	padding-right: 1em;
 }
+
+
+/* Conference Page */
+.work-content {
+	justify-content: flex-start;
+	text-align: left;
+
+	span {
+		padding-right: 1em;
+		padding-left: 1em;
+		padding-top: 1em;
+
+		&:before {
+			display: block;
+			content: '\00ad';
+			width: 40px;
+			height: 40px;
+			margin-bottom: .5em;
+			border: 1px solid #fff;
+			background-position: -70px 0;
+			background-repeat: no-repeat;
+			background-image: url('../gfx/oi-icons_sprite.svg');
+		}
+
+		&:after {
+			display: none;
+		}
+	}
+}
