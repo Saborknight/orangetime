@@ -149,7 +149,7 @@ function oi_register_custom_taxonomies() {
             'show_in_menu' => true,
             'show_admin_column' => true,
             'query_vars' => true,
-            'rewrite' => array('slug' => false)
+            'rewrite' => array('slug' => 'categories'),
         )
     );
     register_taxonomy_for_object_type( 'oi_blog_categories', 'oi_blog' );

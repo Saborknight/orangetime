@@ -23,7 +23,7 @@
 			<?php
 				$args = array(
 					'post_type' => 'oi_blog',
-					'posts_per_page' => -1
+					'posts_per_page' => -1,
 				);
 				$query = new WP_Query($args);
 				$output = array();
@@ -73,7 +73,7 @@
 								'<li class="row">
 									<article class="blog_post">
 										<div class="col-sm-12 col-md-6 blog_post-image_container">
-											<figure class="blog_post-image">%(featured_image)s</figure>
+											<a href="%(image_link)s"><figure class="blog_post-image">%(featured_image)s</figure></a>
 										</div>
 										<div class="col-sm-12 col-md-6 blog_post-content">
 											<div>
@@ -83,7 +83,7 @@
 												</p>
 											</div>
 											<div>
-												<p class="blog_post-meta">%(read_more)s %(date)s <span class="separator">|</span> %(categories)s</p>
+												<p class="blog_post-meta">%(read_more)s %(date)s %(separator)s %(categories)s</p>
 											</div>
 										</div>
 									</article>
@@ -91,11 +91,13 @@
 
 								array(
 									'featured_image' => get_the_post_thumbnail(get_the_ID(), 'large'),
+									'image_link' => $post_link,
 									'title' => sprintf('<a href="%3$s" title="%2$s">%1$s</a>', $title, $title_attr, $post_link),
 									// Author not on designs. Keeping just in case though
 									// 'author' => sprintf('<a href="%2$s" title="%3$s">%1$s</a>', $author, $author_link, $author_attr),
 									'date' => get_the_date('d. F Y'),
 									'categories' => implode(", ", $term_names),
+									'separator' => !empty($term_names) ? '<span class="separator">|</span>' : '',
 									'excerpt' => $excerpt,
 									'read_more' => sprintf('<a class="blog_post-read-more-link" href="%3$s" title="%2$s">%1$s</a>', $read_more, $read_more_attr, $post_link)
 								)
