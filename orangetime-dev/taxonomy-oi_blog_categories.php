@@ -124,6 +124,8 @@
                         )
                     );
                 }
+            } else {
+                array_push($output, __('Oops, nothing here!', 'orangetime'));
             }
 
             wp_reset_postdata();
