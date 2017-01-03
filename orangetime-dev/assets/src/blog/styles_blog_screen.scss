@@ -32,8 +32,12 @@
 		margin-bottom: 1em;
 	}
 
-	.main-content__helper li.row {
-		padding-bottom: 0;
+	.main-content__helper {
+		margin-bottom: 4em;
+
+		li.row {
+			padding-bottom: 0;
+		}
 	}
 }
 
