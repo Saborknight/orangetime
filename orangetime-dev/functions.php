@@ -101,6 +101,14 @@ function oi_register_post_types()
     		'supports' => array('title', 'thumbnail'),
 		)
 	);
+    /**
+     * Blog registration, its custom taxonomy is registered further down. This needed
+     * to be implemented as WordPress default post type and categories were already
+     * being used.
+     *
+     * @since 2.0.0
+     *
+    */
 
     register_post_type( 'oi_blog',
         array(
@@ -126,7 +134,9 @@ function oi_register_post_types()
 add_action('init', 'oi_register_post_types');
 
 /**
- * Register Custom Categories for the blog
+ * Register Custom taxonomy(Categories) for the blog
+ *
+ * @since 2.0.0
  */
 function oi_register_custom_taxonomies() {
     register_taxonomy( 'oi_blog_categories', 'oi_blog',
@@ -157,14 +167,6 @@ function oi_register_custom_taxonomies() {
     register_taxonomy_for_object_type( 'oi_blog_categories', 'oi_blog' );
 }
 add_action('init', 'oi_register_custom_taxonomies');
-
-/**
- * Rewrite for Custom category slugs
- */
-// function oi_rewrite_rules($rules) {
-//     $newRules = array();
-//     $newRules = ['/(.+)/?$'] 'index.php?taxonomy_name=$matches[1]';
-// }
 
 /**
  * Sisu pärimise reeglid
