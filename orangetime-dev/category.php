@@ -43,7 +43,6 @@
                 if( 4 == icl_object_id($current_cat_object->cat_ID, 'category') ) { // Conference
                     $post_index = $wp_query->current_post + 1;
                     $highlighted = false;
-                    var_dump($post_index);
 
                     // Kui tegemist on koverentsi kategooriaga ja viimane postitus on kuvatud,
                     // muuda selle linki ja viita see Portfelli lehele
@@ -51,19 +50,19 @@
                         $last = true;
                     }
 
-                    // if( $post_index =< 2 ) {
-                    //     $highlighted = true;
-                    // }
+                    if( $post_index <= 2 ) {
+                        $highlighted = true;
+                    }
 
                     $cat_template = 
                         oi_template(
                             '<li class="col-xs-6 col-sm-4 col-md-%(width)s work-item">
-                                <article class="work">
-                                    <a href="%(url)s" class="work-url">
-                                        <figure class="work-image">%(featured_image)s</figure>
-                                        <div class="work-content">
+                                <article class="work %(highlighted_style)s">
+                                    <a href="%(url)s" class="work-url conference-url">
+                                        <figure class="work-image conference-image">%(featured_image)s</figure>
+                                        <div class="work-content conference-content">
                                             <div class="work-title-container">
-                                                <h2 class="work-title"><span>%(title)s</span></h2>
+                                                <h2 class="work-title conference-title"><span>%(title)s</span></h2>
                                             </div>
                                         </div>
                                     </a>
@@ -72,7 +71,8 @@
 
                             array(
                                 'width' => ( $highlighted ) ? '6' : '3',
-                                'featured_image' => get_the_post_thumbnail(get_the_ID(), 'category-image'),
+                                'highlighted_style' => ( $highlighted ) ? 'conference' : '',
+                                'featured_image' => get_the_post_thumbnail(get_the_ID(), ( $highlighted ) ? 'large' : 'category-image'),
                                 'title' => get_the_title(),
                                 'url' => ( $last ) ? get_category_link(icl_object_id(5, 'category')) : get_permalink()
                             )
