@@ -20,7 +20,7 @@
     <div class="container">
         <article class="category-article">
             <header class="article">
-                <h1 class="article-title"><?php printf( esc_attr__( 'Categorid: %s', 'orangetime' ), single_cat_title('', false) ); ?></h1>
+                <h1 class="article-title"><?php printf( esc_attr__( 'Category: %s', 'orangetime' ), single_cat_title('', false) ); ?></h1>
                 <?php
     /*                $current_cat_object = get_queried_object();
                     $terms = wp_get_post_terms($post->ID, 'category');
@@ -76,7 +76,7 @@
                         $excerpt = substr( $excerpt, 0, $excerpt_length);
                     }
 
-                    $read_more = __('<span class="blog_post-read-more"></span>', 'orangetime');
+                    $read_more = '<span class="blog_post-read-more"></span>';
                     /* translators: %s is the name of the blog post */
                     $read_more_attr = sprintf(esc_attr__('Read more about %s', 'orangetime'), $title);
 

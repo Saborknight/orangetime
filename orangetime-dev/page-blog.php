@@ -56,7 +56,7 @@
 							$excerpt = substr( $excerpt, 0, $excerpt_length);
 						}
 
-						$read_more = __('<span class="blog_post-read-more"></span>', 'orangetime');
+						$read_more = '<span class="blog_post-read-more"></span>';
 						/* translators: %s is the name of the blog post */
 						$read_more_attr = sprintf(esc_attr__('Read more about %s', 'orangetime'), $title);
 

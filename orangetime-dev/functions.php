@@ -30,6 +30,8 @@ function oi_image_sizes()
 }
 add_action('after_setup_theme', 'oi_image_sizes');
 
+load_theme_textdomain('orangetime');
+
 /**
  * Muudame olemasolevate metakastide pealkirju.
  * Mõjutab administreerimisliidest.
@@ -149,7 +151,6 @@ function oi_register_custom_taxonomies() {
             'show_in_menu' => true,
             'show_admin_column' => true,
             'hierarchical' => true,
-            'query_vars' => true,
             'rewrite' => array('slug' => esc_attr_x('categories', 'URL slug', 'orangetime')),
         )
     );
