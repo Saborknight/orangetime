@@ -59,7 +59,7 @@
                             '<li class="col-xs-6 col-sm-4 col-md-%(width)s work-item">
                                 <article class="work %(highlighted_style)s">
                                     <a href="%(url)s" class="work-url conference-url">
-                                        <figure class="work-image conference-image">%(featured_image)s</figure>
+                                        <figure class="work-image %(highlighted_style_image)s">%(featured_image)s</figure>
                                         <div class="work-content conference-content">
                                             <div class="work-title-container">
                                                 <h2 class="work-title conference-title"><span>%(title)s</span></h2>
@@ -72,6 +72,7 @@
                             array(
                                 'width' => ( $highlighted ) ? '6' : '3',
                                 'highlighted_style' => ( $highlighted ) ? 'conference' : '',
+                                'highlighted_style_image' => ( $highlighted ) ? 'conference-image' : '',
                                 'featured_image' => get_the_post_thumbnail(get_the_ID(), ( $highlighted ) ? 'large' : 'category-image'),
                                 'title' => get_the_title(),
                                 'url' => ( $last ) ? get_category_link(icl_object_id(5, 'category')) : get_permalink()

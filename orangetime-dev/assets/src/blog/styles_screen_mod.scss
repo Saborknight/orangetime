@@ -21,6 +21,13 @@ $color-list: #DF0FAC, #0179C6, #AA9E73, #AB0B0B, #0AC79A, #FEC500, #840FE8, #ca4
 	}
 }
 
+@media only screen and (max-width: 992px) {
+	.conference-image img {
+		height: 100%;
+		width: auto;
+	}
+}
+
 @media only screen and (min-width: 100px) {
 	.main-content__helper li.row {
 		padding-bottom: 1em;
@@ -65,12 +72,6 @@ $color-list: #DF0FAC, #0179C6, #AA9E73, #AB0B0B, #0AC79A, #FEC500, #840FE8, #ca4
 
 	.conference {
 		padding-bottom: 320px;
-	}
-
-	.conference-image {
-		display: flex;
-		overflow: hidden;
-		align-items: center;
 	}
 }
 
@@ -226,4 +227,11 @@ $color-list: #DF0FAC, #0179C6, #AA9E73, #AB0B0B, #0AC79A, #FEC500, #840FE8, #ca4
 .row-no-gutter .col-md-6 {
 	padding-left: 0;
 	padding-right: 0;
+}
+
+.conference-image {
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
 }
