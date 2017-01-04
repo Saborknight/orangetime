@@ -40,7 +40,7 @@
                 the_post();
 
                 // Specify Templates
-                if( 4 == icl_object_id($current_cat_object->cat_ID, 'category') ) { // Conference
+                if( 4 == icl_object_id($current_cat_object->cat_ID, 'category') || 7 == icl_object_id($current_cat_object->cat_ID, 'category') ) { // Conference
                     $post_index = $wp_query->current_post + 1;
                     $highlighted = false;
 
@@ -78,7 +78,7 @@
                                 'url' => ( $last ) ? get_category_link(icl_object_id(5, 'category')) : get_permalink()
                             )
                         );
-                } else { // Default (Used for "Events" == 5)
+                } else { // Default (Used for "Events" == 5 OR 8)
                     $cat_template =
                         oi_template(
                             '<li class="col-xs-6 col-sm-4 col-md-3">
