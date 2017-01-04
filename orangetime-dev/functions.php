@@ -30,7 +30,15 @@ function oi_image_sizes()
 }
 add_action('after_setup_theme', 'oi_image_sizes');
 
-load_theme_textdomain('orangetime');
+/**
+ * Theme localisation (manual, due to unreliability when implementing with WPML)
+ *
+ * @since 2.0.0
+ */
+function oi_setup_mod() {
+    load_theme_textdomain( 'orangetime', get_template_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'oi_setup_mod' );
 
 /**
  * Muudame olemasolevate metakastide pealkirju.
