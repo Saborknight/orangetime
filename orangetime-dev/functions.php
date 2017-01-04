@@ -148,8 +148,9 @@ function oi_register_custom_taxonomies() {
             'show_ui' => true,
             'show_in_menu' => true,
             'show_admin_column' => true,
+            'hierarchical' => true,
             'query_vars' => true,
-            'rewrite' => array('slug' => 'categories'),
+            'rewrite' => array('slug' => esc_attr_x('categories', 'URL slug', 'orangetime')),
         )
     );
     register_taxonomy_for_object_type( 'oi_blog_categories', 'oi_blog' );
