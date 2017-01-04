@@ -145,7 +145,7 @@ gulp.task('ftp:dev', function() {
 					src: devDir,
 					dest: '/webroot/wp-content/themes/orangetime',
 					globs: [
-						'./assets/**/styles_blog_screen.css',
+						'./assets/**/styles_screen_mod.css',
 						'!./**/*.mp4',
 						'!./libs/**/*.*',
 					],
@@ -233,7 +233,7 @@ function orangetime() {
 	log('Handling Orangetime Build', 'info');
 
 	return gulp.src([util.format('%s/%s**/%s', devDir, 'assets/', '*'),
-		util.format('!%s/%s**/*%s', devDir, 'assets/src/blog/', 'styles_blog_screen.scss')])
+		util.format('!%s/%s**/*%s', devDir, 'assets/src/blog/', 'styles_screen_mod.scss')])
 		.pipe(gulp.dest(buildDir + '/assets/'));
 }
 
@@ -260,8 +260,8 @@ function orangetime() {
 function sassProcess() {
 	log('Compiling [sass]', 'info');
 
-	return gulp.src([util.format('%s/%s**/%s', devDir, 'assets/src/blog/', 'styles_blog_screen.scss'), 
-		util.format('!%s/%s**/-OLD*%s', devDir, 'assets/src/blog/', 'styles_blog_screen.scss')])
+	return gulp.src([util.format('%s/%s**/%s', devDir, 'assets/src/blog/', 'styles_screen_mod.scss'), 
+		util.format('!%s/%s**/%s-OLD*', devDir, 'assets/src/blog/', 'styles_screen_mod.scss')])
 		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)) // Using gulp-sass
 		.pipe(gulp.dest(devDir + '/assets/dist/css/'))
 		.pipe(browserSync.reload({
@@ -273,14 +273,14 @@ function autoprefix() {
 	log('Autoprefixing', 'info');
 
 	if(confWP) {
-		return gulp.src([util.format('%s/%s**/%s', devDir, 'assets/dist/css/', 'styles_blog_screen.css'),
-		util.format('!%s/%s**/-OLD*%s', devDir, 'assets/dist/css/', 'styles_blog_screen.css')])
+		return gulp.src([util.format('%s/%s**/%s', devDir, 'assets/dist/css/', 'styles_screen_mod.css'),
+		util.format('!%s/%s**/%s-OLD*', devDir, 'assets/dist/css/', 'styles_screen_mod.min.css')])
 			.pipe(autoprefixer({
 				browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3']
 			}))
 			// Minifies only if it's a CSS file
 			.pipe(gulpIf('*.css', cssnano()))
-			.pipe(gulp.dest(buildDir + '/assets/dist/css/styles_blog_screen.css'));
+			.pipe(gulp.dest(buildDir + '/assets/dist/css/'));
 	} else {
 		return gulp.src(globDeclaration('.css', 'css'))
 			.pipe(autoprefixer({

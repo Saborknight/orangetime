@@ -1,0 +1,237 @@
+/* 
+ * This SASS file compiles using gulp-sass (see the gulpfile, use `gulp watch` to compile)
+ * Modification made by Saborknight (saborknight.com)
+ */
+/* Variables */
+$orange: #ca4f1c;
+$purple: #840FE8;
+$yellow: #FEC500;
+$turquoise: #0AC79A;
+$red: #AB0B0B;
+$dirt: #AA9E73;
+$blue: #0179C6;
+$pink: #DF0FAC;
+
+$color-list: #DF0FAC, #0179C6, #AA9E73, #AB0B0B, #0AC79A, #FEC500, #840FE8, #ca4f1c;
+
+/* Media Queries */
+@media only screen and (max-width: 576px) {
+	.blog_post-meta {
+		line-height: 2.5;
+	}
+}
+
+@media only screen and (max-width: 992px) {
+	.conference-image img {
+		height: 100%;
+		width: auto;
+	}
+}
+
+@media only screen and (min-width: 100px) {
+	.main-content__helper li.row {
+		padding-bottom: 1em;
+	}
+}
+
+@media only screen and (min-width: 576px) {
+	.blog_post-image {
+		height: 6em;
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.blog_post-image {
+		height: 10em;
+		width: 780px;
+	}
+
+	.blog_post-content {
+		margin-bottom: 1em;
+	}
+
+	.main-content__helper {
+		margin-bottom: 4em;
+
+		li.row {
+			padding-bottom: 0;
+		}
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.blog_post-image {
+		height: 19em;
+		width: 500px;
+	}
+
+	li.row:nth-of-type(even) .blog_post-image_container {
+		float: right;
+	}
+
+	.conference {
+		padding-bottom: 320px;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.blog_post-image {
+		height: 17em;
+		width: 600px;
+	}
+}
+
+/* Blog Page */
+.blog_post-image {
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+
+	& > img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.main-content__helper li.row {
+	background-color: #fff;
+
+	&:hover {
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+		z-index: 500000;
+		position: relative;
+	}
+}
+
+.blog_post-image_container {
+	padding: 0;
+}
+
+.blog_post-read-more {
+	&:after {
+		content: '\00ad';
+		display: flex;
+		width: 40px;
+		height: 40px;
+		// margin: .7em auto auto;
+		border: 1px solid #000;
+		background-repeat: no-repeat;
+		background-image: url(../gfx/oi-icon-arrow-right.svg);
+	}
+}
+
+.blog_post-read-more-link {
+	display: inline-flex;
+	transform: translate3d(0,33%,0);
+	margin-right: 1em;
+}
+
+.separator {
+	margin: 0 0.5em;
+}
+
+.blog_post-content > div {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+
+/* Conference Page */
+.work-content {
+	justify-content: flex-start;
+	text-align: left;
+	overflow: hidden;
+
+	span {
+		padding-right: 1em;
+		padding-left: 1em;
+		padding-top: 1em;
+		top: -2.5em;
+		transition: top .25s ease-in-out;
+
+		&:before {
+			display: block;
+			content: '\00ad';
+			width: 40px;
+			height: 40px;
+			margin-bottom: .5em;
+			border: 1px solid #fff;
+			background-position: -70px 0;
+			background-repeat: no-repeat;
+			background-image: url('../gfx/oi-icons_sprite.svg');
+			transform: translate3d(0,-1em,0);
+			transition: transform .25s ease-in-out;
+		}
+
+		&:after {
+			display: none;
+		}
+	}
+
+	&:hover span {
+		top: 0;
+
+		&:before {
+			transform: translate3d(0,0,0);
+		}
+	}
+}
+
+.work-title-container {
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		border: none;
+		background-position: 0;
+		background-image: none;
+		opacity: 0;
+		transition: opacity .25s ease-in-out;
+	}
+
+	&:hover:after {
+		opacity: 1;
+	}
+}
+
+@each $color in $color-list {
+	$i: index($color-list, $color);
+	$opacity-color: rgba($color, 0.61);
+	.work-item:nth-of-type(#{$i}n) {
+		.work-title-container:after {
+			background-color: $opacity-color;
+		}
+
+		.work-title:before {
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.61+0,0+100 */
+			background: -moz-linear-gradient(-45deg,  $opacity-color 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(-45deg,  $opacity-color 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(135deg,  $opacity-color 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+	}
+}
+
+.work-title {
+	opacity: 1;
+
+	&:before {
+
+	}
+}
+
+.row-no-gutter .col-md-6 {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.conference-image {
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+}
