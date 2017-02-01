@@ -19,6 +19,14 @@
 			<h1 class="article-title"><?php the_title(); ?></h1>
 			<?php the_content(); ?>
 		</article>
+		<article class="comments">
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
+			?>
+		</article>
 	</div>
 </main>
 <?php get_footer(); ?>
