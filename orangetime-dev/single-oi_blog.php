@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Orangetime
- * @since 1.0.0
+ * @since 2.0.0
  *
  * @version $Id: single.php 35152 2015-06-08 12:56:12Z tauno $
  *
