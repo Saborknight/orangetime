@@ -216,6 +216,8 @@ function oi_add_remove_scripts()
         wp_enqueue_style('oi-screen_mod', get_template_directory_uri() . '/assets/dist/css/styles_screen_mod.css', array( 'oi-screen' ), $css_blog_time, 'screen');
     }
 
+    wp_enqueue_style( 'google_fonts', add_query_arg( array( 'family' => 'Questrial' ), '//fonts.googleapis.com/css' ), array(), null );
+
     wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/dist/scripts/vendors.min.js', false, $js_vendors_time);
     wp_enqueue_script('oi-app', get_template_directory_uri() . '/assets/dist/scripts/custom.js', false, $js_custom_time);
 

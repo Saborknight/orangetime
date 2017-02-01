@@ -29,7 +29,6 @@
     <meta name="msapplication-square310x310logo" content="<?php echo get_template_directory_uri(); ?>/assets/dist/gfx/largetile.png" />
     */
 ?>
-<link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css' />
 <?php wp_head(); ?>
 <!--[if lt IE 9]>
 <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
