@@ -1,0 +1,279 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: orangetime\n"
+"POT-Creation-Date: 2017-01-04 20:03+0200\n"
+"PO-Revision-Date: 2017-01-04 21:03+0200\n"
+"Last-Translator: Saborknight <support@saborknight.com>\n"
+"Language-Team: Saborknight <support@saborknight.com>\n"
+"Language: et_EE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x;_n;_ex;esc_html__;esc_html_e;esc_html_x;"
+"esc_attr__;esc_attr_e;esc_attr_x\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: libs\n"
+"X-Poedit-SearchPathExcluded-1: assets\n"
+
+#: footer.php:18 footer.php:22
+msgid "Orangetime Konverentsid OÜ"
+msgstr "Orangetime Konverentsid OÜ"
+
+#: footer.php:25
+msgid "Orangetime Event OÜ"
+msgstr "Orangetime Event OÜ"
+
+#: functions.php:47
+msgid "Kontakti tunnuspilt (270x375px)"
+msgstr "Kontakti tunnuspilt (270x375px)"
+
+#: functions.php:50
+msgid "Tunnuspilt (320x320px)"
+msgstr "Tunnuspilt (320x320px)"
+
+#: functions.php:87
+msgid "Inimesed"
+msgstr "Inimesed"
+
+#: functions.php:88
+msgid "Inimene"
+msgstr "Inimene"
+
+#: functions.php:89
+msgid "Lisa inimene"
+msgstr "Lisa inimene"
+
+#: functions.php:90
+msgid "Muuda inimest"
+msgstr "Muuda inimest"
+
+#: functions.php:91
+msgid "Lisa uus inimene"
+msgstr "Lisa uus inimene"
+
+#: functions.php:92
+msgid "Inimesi pole"
+msgstr "Inimesi pole"
+
+#: functions.php:93
+msgid "Otsi"
+msgstr "Otsi"
+
+#: functions.php:98
+msgid "kontakt"
+msgstr "kontakt"
+
+#: functions.php:106
+msgid "Blog"
+msgstr "Blogi"
+
+#: functions.php:107
+msgid "Blog Post"
+msgstr "Blogi Postitus"
+
+#: functions.php:108
+msgid "Edit Blog Post"
+msgstr "Muuda Blogi Postitust"
+
+#: functions.php:109
+msgid "Add New Blog Post"
+msgstr "Lisa Uus Blogi Postitus"
+
+#: functions.php:110
+msgid "No blog posts found"
+msgstr "Blogi Postitusi Ei Leitud"
+
+#: functions.php:111
+msgid "Search Blog Posts"
+msgstr "Otsi Blogi Postitusi"
+
+#: functions.php:112
+msgid "New Blog Post"
+msgstr "Uus Blogi Postitus"
+
+#: functions.php:113
+msgid "View Blog Post"
+msgstr "Vaata Blogi Postitusi"
+
+#: functions.php:114
+msgid "Blog Posts"
+msgstr "Blogi Postitused"
+
+#: functions.php:119
+msgid "blog"
+msgstr "blogi"
+
+#: functions.php:134
+msgid "Blog Categories"
+msgstr "Blogi Kategooriad"
+
+#: functions.php:135
+msgid "Blog Category"
+msgstr "Blogi Kategooria"
+
+#: functions.php:136
+msgid "All Blog Categories"
+msgstr "Kõik Blogi Kategooriad"
+
+#: functions.php:137
+msgid "Edit Blog Category"
+msgstr "Muuda Blogi Kategooria"
+
+#: functions.php:138
+msgid "View Blog Category"
+msgstr "Vaata Blogi Kategooriat"
+
+#: functions.php:139
+msgid "Update Blog Category"
+msgstr "Uuendada Blogi Kategooria"
+
+#: functions.php:140
+msgid "Add New Blog Category"
+msgstr "Lisa Uue Blogi Kategooria"
+
+#: functions.php:141
+msgid "New Blog Category Name"
+msgstr "Uue Blogi Kategooria Nimi"
+
+#: functions.php:142
+msgid "Parent Blog Category"
+msgstr "Vanema Blogi Kategooria"
+
+#: functions.php:143
+msgid "Parent Blog Category: "
+msgstr "Vanema Blogi Kategooria:"
+
+#: functions.php:144
+msgid "Search Blog Category"
+msgstr "Otsi Blogi Kategooria"
+
+#: functions.php:145
+msgid "No Blog Categories found"
+msgstr "Blogi Kategooriat Ei Leitud"
+
+#: functions.php:152
+msgid "categories"
+msgstr "Kategooriad"
+
+#: functions.php:267
+msgid "Kontakti andmed"
+msgstr "Kontakti andmed"
+
+#: functions.php:278
+msgid "Amet"
+msgstr "Amet"
+
+#: functions.php:285
+msgid "Positsioon"
+msgstr "Positsioon"
+
+#: functions.php:291
+msgid "Telefon"
+msgstr "Telefon"
+
+#: functions.php:297
+msgid "E-post"
+msgstr "E-post"
+
+#: functions.php:306
+msgid "Agentuuri lehe seaded"
+msgstr "Agentuuri lehe seaded"
+
+#: functions.php:316
+msgid "Tunnuspilt"
+msgstr "Tunnuspilt"
+
+#: functions.php:318
+msgid "Eeldatakse, et üleslaetav pilt on suuruses 1280x808px"
+msgstr "Eeldatakse, et üleslaetav pilt on suuruses 1280x808px"
+
+#: functions.php:358
+msgid "Kirjeldus"
+msgstr "Kirjeldus"
+
+#: functions.php:379
+msgid "Kontakti rubriigi täiendavad seaded"
+msgstr "Kontakti rubriigi täiendavad seaded"
+
+#: functions.php:414
+#, php-format
+msgid "%s seaded"
+msgstr "%s seaded"
+
+#: functions.php:453
+msgid "Jaluse seaded"
+msgstr "Jaluse seaded"
+
+#: functions.php:457
+msgid "Avalehe seaded"
+msgstr "Avalehe seaded"
+
+#: functions.php:461
+msgid "404 lehe seaded"
+msgstr "404 lehe seaded"
+
+#: functions.php:471
+msgid "404 lehe pealkiri"
+msgstr "404 lehe pealkiri"
+
+#: functions.php:480
+msgid "404 lehe sisu"
+msgstr "404 lehe sisu"
+
+#: functions.php:487
+msgid "Avalehe pealkiri"
+msgstr "Avalehe pealkiri"
+
+#: functions.php:496
+msgid "Avalehe tekst"
+msgstr "Avalehe tekst"
+
+#: header.php:57
+msgid "Peamenüü"
+msgstr "Peamenüü"
+
+#: header.php:62
+msgid "Mobiili Peamenüü"
+msgstr "Mobiili Peamenüü"
+
+#: header.php:63
+msgid "Menüü"
+msgstr "Menüü"
+
+#. translators: this is regarding author links. %s = Author name
+#: page-blog.php:43 taxonomy-oi_blog_categories.php:63
+#, php-format
+msgid "See more posts by %s"
+msgstr "Vaata postitused %s"
+
+#. translators: this is regarding blog category links
+#: page-blog.php:47 taxonomy-oi_blog_categories.php:67
+msgid "Find more posts related to"
+msgstr "Otsi kasutaja postitusi seoses"
+
+#. translators: %s is the name of the blog post
+#: page-blog.php:61 taxonomy-oi_blog_categories.php:81
+#, php-format
+msgid "Read more about %s"
+msgstr "Loe lähemalt %s"
+
+#: page-blog.php:108 taxonomy-oi_blog_categories.php:128
+msgid "Oops, nothing here!"
+msgstr "Siin pole midagi!"
+
+#: page-people_page.php:63
+msgid "Saada e-kiri"
+msgstr "Saada e-kiri"
+
+#: page-people_page.php:64
+msgid "Helista"
+msgstr "Helista"
+
+#: taxonomy-oi_blog_categories.php:23
+#, php-format
+msgid "Category: %s"
+msgstr "Kategooria: %s"

@@ -31,6 +31,16 @@ function oi_image_sizes()
 add_action('after_setup_theme', 'oi_image_sizes');
 
 /**
+ * Theme localisation (manual, due to unreliability when implementing with WPML)
+ *
+ * @since 2.0.0
+ */
+function oi_setup_mod() {
+    load_theme_textdomain( 'orangetime', get_template_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'oi_setup_mod' );
+
+/**
  * Muudame olemasolevate metakastide pealkirju.
  * Mõjutab administreerimisliidest.
  * Eriti hea on see tunnuspiltide (featured image) kastidele
@@ -67,6 +77,17 @@ function oi_alter_default_metaboxes()
 add_action('do_meta_boxes', 'oi_alter_default_metaboxes');
 
 /**
+ * Comments redirect to custom template
+ *
+ * @since 2.0.0
+ *
+ */
+function oi_comments_template_mod() {
+    return get_template_directory() . '/comments.php';
+}
+add_filter( 'comments_template', 'oi_comments_template_mod' );
+
+/**
  * Kujunduspõhjas rakendavate postituste tüüpide registreerimine
  *
  * @since 1.0.0
@@ -99,6 +120,14 @@ function oi_register_post_types()
     		'supports' => array('title', 'thumbnail'),
 		)
 	);
+    /**
+     * Blog registration, its custom taxonomy is registered further down. This needed
+     * to be implemented as WordPress default post type and categories were already
+     * being used.
+     *
+     * @since 2.0.0
+     *
+    */
 
     register_post_type( 'oi_blog',
         array(
@@ -124,7 +153,9 @@ function oi_register_post_types()
 add_action('init', 'oi_register_post_types');
 
 /**
- * Register Custom Categories for the blog
+ * Register Custom taxonomy(Categories) for the blog
+ *
+ * @since 2.0.0
  */
 function oi_register_custom_taxonomies() {
     register_taxonomy( 'oi_blog_categories', 'oi_blog',
@@ -148,21 +179,13 @@ function oi_register_custom_taxonomies() {
             'show_ui' => true,
             'show_in_menu' => true,
             'show_admin_column' => true,
-            'query_vars' => true,
-            'rewrite' => array('slug' => false)
+            'hierarchical' => true,
+            'rewrite' => array('slug' => esc_attr_x('categories', 'URL slug', 'orangetime')),
         )
     );
     register_taxonomy_for_object_type( 'oi_blog_categories', 'oi_blog' );
 }
 add_action('init', 'oi_register_custom_taxonomies');
-
-/**
- * Rewrite for Custom category slugs
- */
-// function oi_rewrite_rules($rules) {
-//     $newRules = array();
-//     $newRules = ['/(.+)/?$'] 'index.php?taxonomy_name=$matches[1]';
-// }
 
 /**
  * Sisu pärimise reeglid
@@ -193,15 +216,18 @@ function oi_add_remove_scripts()
 	}
 
 	$css_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/css/styles_screen.min.css') : null;
-    $css_blog = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/css/styles_blog_screen.css') : null;
+    $css_blog_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/css/styles_blog_screen.css') : null;
     $js_vendors_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/scripts/vendors.min.js') : null;
     $js_custom_time = ( strpos($_SERVER['SERVER_NAME'], 'prelive.') !== false ) ? filemtime(get_template_directory() . '/assets/dist/scripts/custom.js') : null;
 
 	wp_enqueue_style('oi-screen', get_template_directory_uri() . '/assets/dist/css/styles_screen.min.css', false, $css_time, 'screen');
 
-    if( is_page_template( 'page-blog.php' ) || get_post_type() === 'oi_blog' ) {
-        wp_enqueue_style('oi-screen_blog', get_template_directory_uri() . '/assets/dist/css/styles_blog_screen.css', false, $css_blog, 'screen_blog');
+    //                               Any blog pages                        Conference Cat (Estonian and English)   Events Cat (Estonian and English)
+    if( is_page_template( 'page-blog.php' ) || get_post_type() === 'oi_blog' || is_category(4) || is_category(7) || is_category(5) || is_category(8) ) {
+        wp_enqueue_style('oi-screen_mod', get_template_directory_uri() . '/assets/dist/css/styles_screen_mod.css', array( 'oi-screen' ), $css_blog_time, 'screen');
     }
+
+    wp_enqueue_style( 'google_fonts', add_query_arg( array( 'family' => 'Questrial' ), '//fonts.googleapis.com/css' ), array(), null );
 
     wp_enqueue_script('jquery', get_template_directory_uri() . '/assets/dist/scripts/vendors.min.js', false, $js_vendors_time);
     wp_enqueue_script('oi-app', get_template_directory_uri() . '/assets/dist/scripts/custom.js', false, $js_custom_time);

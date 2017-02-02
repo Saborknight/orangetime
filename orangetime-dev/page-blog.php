@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Orangetime
- * @since 1.0.0
+ * @since 2.0.0
  *
  * @version $Id$
  *
@@ -23,7 +23,7 @@
 			<?php
 				$args = array(
 					'post_type' => 'oi_blog',
-					'posts_per_page' => -1
+					'posts_per_page' => -1,
 				);
 				$query = new WP_Query($args);
 				$output = array();
@@ -45,8 +45,19 @@
 						$terms = wp_get_post_terms($post->ID, 'oi_blog_categories', array('fields' => 'all'));
 						/* translators: this is regarding blog category links */
 						$term_pre_attr = esc_attr__('Find more posts related to', 'orangetime');
-						$excerpt_length = 55; // Can be replaced with another function or global variable in the future
-						$read_more = esc_attr__('Read More...', 'orangetime');
+
+						$excerpt_length = 250; // Can be replaced with another function or global variable in the future
+
+						// Finding the position of the last "." (if it exists) and getting rid of anything after it
+						$excerpt = substr( esc_attr__( get_the_excerpt(), 'orangetime' ), 0, $excerpt_length );
+
+						if( strlen( strrchr( $excerpt, "." ) ) > 0 ) {
+							$excerpt_length = strrpos( $excerpt, "." ) + 1;
+							$excerpt = substr( $excerpt, 0, $excerpt_length);
+						}
+
+						$read_more = '<span class="blog_post-read-more"></span>';
+						/* translators: %s is the name of the blog post */
 						$read_more_attr = sprintf(esc_attr__('Read more about %s', 'orangetime'), $title);
 
 						// Loop to get the Categories of the Post
@@ -54,7 +65,7 @@
 
 						foreach ($terms as $key => $value)
 						{
-							array_push($term_names, sprintf('<a href="%4$s" title="%3$s %1$s">%1$s</a>', $value->name, $value->slug, $term_pre_attr, get_category_link($value->term_id)));
+							array_push($term_names, sprintf('<a href="%4$s" title="%3$s %1$s">%1$s</a>', $value->name, $value->slug, $term_pre_attr, get_category_link( $value->term_id )));
 						}
 
 						array_push($output,
@@ -62,7 +73,7 @@
 								'<li class="row">
 									<article class="blog_post">
 										<div class="col-sm-12 col-md-6 blog_post-image_container">
-											<figure class="blog_post-image">%(featured_image)s</figure>
+											<a href="%(image_link)s"><figure class="blog_post-image">%(featured_image)s</figure></a>
 										</div>
 										<div class="col-sm-12 col-md-6 blog_post-content">
 											<div>
@@ -72,28 +83,29 @@
 												</p>
 											</div>
 											<div>
-												<div class="blog_post-read-more">
-													%(read_more)s
-												</div>
-												<p class="blog_post-meta">%(date)s | %(categories)s</p>
+												<p class="blog_post-meta">%(read_more)s %(date)s %(separator)s %(categories)s</p>
 											</div>
 										</div>
 									</article>
 								</li>',
 
 								array(
-									'featured_image' => get_the_post_thumbnail(get_the_ID(), 'medium'),
+									'featured_image' => get_the_post_thumbnail(get_the_ID(), 'large'),
+									'image_link' => $post_link,
 									'title' => sprintf('<a href="%3$s" title="%2$s">%1$s</a>', $title, $title_attr, $post_link),
 									// Author not on designs. Keeping just in case though
 									// 'author' => sprintf('<a href="%2$s" title="%3$s">%1$s</a>', $author, $author_link, $author_attr),
 									'date' => get_the_date('d. F Y'),
 									'categories' => implode(", ", $term_names),
-									'excerpt' => mb_substr(get_the_excerpt(), 0, $excerpt_length),
-									'read_more' => sprintf('<a href="%3$s" title="%2$s">%1$s</a>', $read_more, $read_more_attr, $post_link)
+									'separator' => !empty($term_names) ? '<span class="separator">|</span>' : '',
+									'excerpt' => $excerpt,
+									'read_more' => sprintf('<a class="blog_post-read-more-link" href="%3$s" title="%2$s">%1$s</a>', $read_more, $read_more_attr, $post_link)
 								)
 							)
 						);
 					}
+				} else {
+					array_push($output, __('Oops, nothing here!', 'orangetime'));
 				}
 
 				wp_reset_postdata();
