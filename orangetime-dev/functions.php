@@ -77,6 +77,17 @@ function oi_alter_default_metaboxes()
 add_action('do_meta_boxes', 'oi_alter_default_metaboxes');
 
 /**
+ * Comments redirect to custom template
+ *
+ * @since 2.0.0
+ *
+ */
+function oi_comments_template_mod() {
+    return get_template_directory() . '/comments.php';
+}
+add_filter( 'comments_template', 'oi_comments_template_mod' );
+
+/**
  * Kujunduspõhjas rakendavate postituste tüüpide registreerimine
  *
  * @since 1.0.0
