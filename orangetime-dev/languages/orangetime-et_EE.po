@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: orangetime\n"
-"POT-Creation-Date: 2017-01-04 20:03+0200\n"
-"PO-Revision-Date: 2017-01-04 21:03+0200\n"
+"POT-Creation-Date: 2017-02-06 17:28+0000\n"
+"PO-Revision-Date: 2017-02-06 17:32+0000\n"
 "Last-Translator: Saborknight <support@saborknight.com>\n"
 "Language-Team: Saborknight <support@saborknight.com>\n"
 "Language: et_EE\n"
@@ -19,6 +19,22 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: libs\n"
 "X-Poedit-SearchPathExcluded-1: assets\n"
 
+#: comments.php:42 comments.php:63
+msgid "Comment navigation"
+msgstr "Kommentaar navigatsiooni"
+
+#: comments.php:45 comments.php:66
+msgid "Older Comments"
+msgstr "Vanemad kommentaarid"
+
+#: comments.php:46 comments.php:67
+msgid "Newer Comments"
+msgstr "Uuemad kommentaarid"
+
+#: comments.php:80
+msgid "Comments are closed."
+msgstr "Kommentaarid on suletud."
+
 #: footer.php:18 footer.php:22
 msgid "Orangetime Konverentsid OÜ"
 msgstr "Orangetime Konverentsid OÜ"
@@ -27,220 +43,220 @@ msgstr "Orangetime Konverentsid OÜ"
 msgid "Orangetime Event OÜ"
 msgstr "Orangetime Event OÜ"
 
-#: functions.php:47
+#: functions.php:57
 msgid "Kontakti tunnuspilt (270x375px)"
 msgstr "Kontakti tunnuspilt (270x375px)"
 
-#: functions.php:50
+#: functions.php:60
 msgid "Tunnuspilt (320x320px)"
 msgstr "Tunnuspilt (320x320px)"
 
-#: functions.php:87
+#: functions.php:108
 msgid "Inimesed"
 msgstr "Inimesed"
 
-#: functions.php:88
+#: functions.php:109
 msgid "Inimene"
 msgstr "Inimene"
 
-#: functions.php:89
+#: functions.php:110
 msgid "Lisa inimene"
 msgstr "Lisa inimene"
 
-#: functions.php:90
+#: functions.php:111
 msgid "Muuda inimest"
 msgstr "Muuda inimest"
 
-#: functions.php:91
+#: functions.php:112
 msgid "Lisa uus inimene"
 msgstr "Lisa uus inimene"
 
-#: functions.php:92
+#: functions.php:113
 msgid "Inimesi pole"
 msgstr "Inimesi pole"
 
-#: functions.php:93
+#: functions.php:114
 msgid "Otsi"
 msgstr "Otsi"
 
-#: functions.php:98
+#: functions.php:119
 msgid "kontakt"
 msgstr "kontakt"
 
-#: functions.php:106
+#: functions.php:135
 msgid "Blog"
 msgstr "Blogi"
 
-#: functions.php:107
+#: functions.php:136
 msgid "Blog Post"
 msgstr "Blogi Postitus"
 
-#: functions.php:108
+#: functions.php:137
 msgid "Edit Blog Post"
 msgstr "Muuda Blogi Postitust"
 
-#: functions.php:109
+#: functions.php:138
 msgid "Add New Blog Post"
 msgstr "Lisa Uus Blogi Postitus"
 
-#: functions.php:110
+#: functions.php:139
 msgid "No blog posts found"
 msgstr "Blogi Postitusi Ei Leitud"
 
-#: functions.php:111
+#: functions.php:140
 msgid "Search Blog Posts"
 msgstr "Otsi Blogi Postitusi"
 
-#: functions.php:112
+#: functions.php:141
 msgid "New Blog Post"
 msgstr "Uus Blogi Postitus"
 
-#: functions.php:113
+#: functions.php:142
 msgid "View Blog Post"
 msgstr "Vaata Blogi Postitusi"
 
-#: functions.php:114
+#: functions.php:143
 msgid "Blog Posts"
 msgstr "Blogi Postitused"
 
-#: functions.php:119
+#: functions.php:148
 msgid "blog"
 msgstr "blogi"
 
-#: functions.php:134
+#: functions.php:165
 msgid "Blog Categories"
 msgstr "Blogi Kategooriad"
 
-#: functions.php:135
+#: functions.php:166
 msgid "Blog Category"
 msgstr "Blogi Kategooria"
 
-#: functions.php:136
+#: functions.php:167
 msgid "All Blog Categories"
 msgstr "Kõik Blogi Kategooriad"
 
-#: functions.php:137
+#: functions.php:168
 msgid "Edit Blog Category"
 msgstr "Muuda Blogi Kategooria"
 
-#: functions.php:138
+#: functions.php:169
 msgid "View Blog Category"
 msgstr "Vaata Blogi Kategooriat"
 
-#: functions.php:139
+#: functions.php:170
 msgid "Update Blog Category"
 msgstr "Uuendada Blogi Kategooria"
 
-#: functions.php:140
+#: functions.php:171
 msgid "Add New Blog Category"
 msgstr "Lisa Uue Blogi Kategooria"
 
-#: functions.php:141
+#: functions.php:172
 msgid "New Blog Category Name"
 msgstr "Uue Blogi Kategooria Nimi"
 
-#: functions.php:142
+#: functions.php:173
 msgid "Parent Blog Category"
 msgstr "Vanema Blogi Kategooria"
 
-#: functions.php:143
+#: functions.php:174
 msgid "Parent Blog Category: "
 msgstr "Vanema Blogi Kategooria:"
 
-#: functions.php:144
+#: functions.php:175
 msgid "Search Blog Category"
 msgstr "Otsi Blogi Kategooria"
 
-#: functions.php:145
+#: functions.php:176
 msgid "No Blog Categories found"
 msgstr "Blogi Kategooriat Ei Leitud"
 
-#: functions.php:152
+#: functions.php:183
 msgid "categories"
 msgstr "Kategooriad"
 
-#: functions.php:267
+#: functions.php:292
 msgid "Kontakti andmed"
 msgstr "Kontakti andmed"
 
-#: functions.php:278
+#: functions.php:303
 msgid "Amet"
 msgstr "Amet"
 
-#: functions.php:285
+#: functions.php:310
 msgid "Positsioon"
 msgstr "Positsioon"
 
-#: functions.php:291
+#: functions.php:316
 msgid "Telefon"
 msgstr "Telefon"
 
-#: functions.php:297
+#: functions.php:322
 msgid "E-post"
 msgstr "E-post"
 
-#: functions.php:306
+#: functions.php:331
 msgid "Agentuuri lehe seaded"
 msgstr "Agentuuri lehe seaded"
 
-#: functions.php:316
+#: functions.php:341
 msgid "Tunnuspilt"
 msgstr "Tunnuspilt"
 
-#: functions.php:318
+#: functions.php:343
 msgid "Eeldatakse, et üleslaetav pilt on suuruses 1280x808px"
 msgstr "Eeldatakse, et üleslaetav pilt on suuruses 1280x808px"
 
-#: functions.php:358
+#: functions.php:383
 msgid "Kirjeldus"
 msgstr "Kirjeldus"
 
-#: functions.php:379
+#: functions.php:404
 msgid "Kontakti rubriigi täiendavad seaded"
 msgstr "Kontakti rubriigi täiendavad seaded"
 
-#: functions.php:414
+#: functions.php:439
 #, php-format
 msgid "%s seaded"
 msgstr "%s seaded"
 
-#: functions.php:453
+#: functions.php:478
 msgid "Jaluse seaded"
 msgstr "Jaluse seaded"
 
-#: functions.php:457
+#: functions.php:482
 msgid "Avalehe seaded"
 msgstr "Avalehe seaded"
 
-#: functions.php:461
+#: functions.php:486
 msgid "404 lehe seaded"
 msgstr "404 lehe seaded"
 
-#: functions.php:471
+#: functions.php:496
 msgid "404 lehe pealkiri"
 msgstr "404 lehe pealkiri"
 
-#: functions.php:480
+#: functions.php:505
 msgid "404 lehe sisu"
 msgstr "404 lehe sisu"
 
-#: functions.php:487
+#: functions.php:512
 msgid "Avalehe pealkiri"
 msgstr "Avalehe pealkiri"
 
-#: functions.php:496
+#: functions.php:521
 msgid "Avalehe tekst"
 msgstr "Avalehe tekst"
 
-#: header.php:57
+#: header.php:56
 msgid "Peamenüü"
 msgstr "Peamenüü"
 
-#: header.php:62
+#: header.php:61
 msgid "Mobiili Peamenüü"
 msgstr "Mobiili Peamenüü"
 
-#: header.php:63
+#: header.php:62
 msgid "Menüü"
 msgstr "Menüü"
 
@@ -272,6 +288,10 @@ msgstr "Saada e-kiri"
 #: page-people_page.php:64
 msgid "Helista"
 msgstr "Helista"
+
+#: single-oi_blog.php:23
+msgid "Share this post..."
+msgstr "Jaga seda postitust..."
 
 #: taxonomy-oi_blog_categories.php:23
 #, php-format
