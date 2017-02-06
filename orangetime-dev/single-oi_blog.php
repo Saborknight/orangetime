@@ -18,6 +18,12 @@
 		<article class="article">
 			<h1 class="article-title"><?php the_title(); ?></h1>
 			<?php the_content(); ?>
+			<div class="article-share-wrapper">
+				<?php
+					printf( '<h4>%s</h4>', __('Share this post...', 'orangetime') );
+					the_widget( 'ssba_widget' );
+				?>
+			</div>
 		</article>
 		<article class="comments">
 			<?php
